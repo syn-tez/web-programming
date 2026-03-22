@@ -1,0 +1,97 @@
+/**
+ * Header Illustration — Figma «Header Illustration» / «Illustration»
+ * Размеры блока: 667.41 × 701.59 px; Ellipse 38: #0F6BCD, blur 107px.
+ * Графика: head.svg (путь относительно этой таблицы стилей: ../img/head.svg).
+ */
+
+.header-illustration {
+  position: relative;
+  width: min(100%, 667.41px);
+  max-width: 667.41px;
+  aspect-ratio: 667.41 / 701.59;
+  flex-shrink: 0;
+  isolation: isolate;
+}
+
+/* Ellipse 38 — свечение за «лицом» (центр относительно макета) */
+.header-illustration__glow {
+  position: absolute;
+  z-index: 0;
+  left: 51.33%;
+  top: 49.39%;
+  width: 285px;
+  height: 285px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #0f6bcd;
+  filter: blur(107px);
+  pointer-events: none;
+}
+
+/* Слой с векторной сеткой (экспорт Figma → head.svg) */
+.header-illustration__art {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-color: transparent;
+  background-image: url("../img/head.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* Угловые скобки — по финальным Vector с border ≈ 3.24px в макете */
+.header-illustration__corners {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+}
+
+.header-illustration__corner {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border: 3.24px solid rgba(255, 255, 255, 0.92);
+}
+
+.header-illustration__corner--tl {
+  left: 19.74%;
+  top: 13.25%;
+  border-right: none;
+  border-bottom: none;
+}
+
+.header-illustration__corner--tr {
+  right: 21.05%;
+  top: 13.25%;
+  border-left: none;
+  border-bottom: none;
+}
+
+.header-illustration__corner--br {
+  right: 21.05%;
+  bottom: 20.21%;
+  border-left: none;
+  border-top: none;
+}
+
+.header-illustration__corner--bl {
+  left: 19.74%;
+  bottom: 20.21%;
+  border-right: none;
+  border-top: none;
+}
+
+@media (max-width: 1024px) {
+  .header-illustration {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .header-illustration__glow {
+    width: min(285px, 55vw);
+    height: min(285px, 55vw);
+  }
+}

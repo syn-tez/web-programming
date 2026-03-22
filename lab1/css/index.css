@@ -18,7 +18,6 @@
   );
   --blur-1: #002853;
   --blur-3: #072d56;
-  --illustration-glow: #0f6bcd;
   --avatar-accent: #13ded2;
   --container: 1226px;
   --radius-input: 5px;
@@ -331,116 +330,12 @@ body {
   color: var(--color-text);
 }
 
-/* —— Hero illustration (упрощённый аналог wireframe из макета) —— */
+/* —— Hero illustration: разметка и слои в css/vectors.css —— */
 .hero__visual {
   position: relative;
   display: flex;
   justify-content: center;
-}
-
-.hero__illustration {
-  position: relative;
-  width: min(100%, 520px);
-  aspect-ratio: 667 / 702;
-  max-height: 640px;
-}
-
-.hero__illustration-glow {
-  position: absolute;
-  left: 50%;
-  top: 52%;
-  width: 72%;
-  height: 52%;
-  transform: translate(-50%, -50%);
-  background: var(--illustration-glow);
-  filter: blur(107px);
-  opacity: 0.55;
-  border-radius: 50%;
-}
-
-.hero__corners {
-  position: absolute;
-  inset: 4% 6% 10% 6%;
-  pointer-events: none;
-}
-
-.hero__corner {
-  position: absolute;
-  width: 52px;
-  height: 52px;
-  border: 3px solid rgba(255, 255, 255, 0.55);
-}
-
-.hero__corner--tl {
-  left: 0;
-  top: 0;
-  border-right: none;
-  border-bottom: none;
-}
-
-.hero__corner--tr {
-  right: 0;
-  top: 0;
-  border-left: none;
-  border-bottom: none;
-}
-
-.hero__corner--bl {
-  left: 0;
-  bottom: 0;
-  border-right: none;
-  border-top: none;
-}
-
-.hero__corner--br {
-  right: 0;
-  bottom: 0;
-  border-left: none;
-  border-top: none;
-}
-
-.hero__mesh {
-  position: absolute;
-  inset: 12% 10% 14% 10%;
-  display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.hero__mesh-face {
-  width: 100%;
-  height: 100%;
-  border-radius: 42% 42% 48% 48%;
-  background:
-    radial-gradient(
-      circle at 30% 35%,
-      rgba(39, 166, 244, 0.35) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 70% 38%,
-      rgba(17, 207, 231, 0.25) 0%,
-      transparent 40%
-    ),
-    repeating-linear-gradient(
-      115deg,
-      rgba(255, 255, 255, 0.04) 0 1px,
-      transparent 1px 14px
-    ),
-    repeating-linear-gradient(
-      -25deg,
-      rgba(255, 255, 255, 0.03) 0 1px,
-      transparent 1px 18px
-    ),
-    linear-gradient(160deg, #0b3148 0%, #1a6da1 55%, #27a6f4 100%);
-  mix-blend-mode: screen;
-  opacity: 0.88;
-  mask-image: radial-gradient(ellipse 70% 75% at 50% 45%, #000 55%, transparent 100%);
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 75% at 50% 45%,
-    #000 55%,
-    transparent 100%
-  );
 }
 
 @media (max-width: 1024px) {
@@ -467,9 +362,6 @@ body {
     order: -1;
   }
 
-  .hero__illustration {
-    max-width: 420px;
-  }
 }
 
 @media (max-width: 600px) {
