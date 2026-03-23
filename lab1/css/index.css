@@ -1,4 +1,3 @@
-/* —— Tokens from Figma (header + hero) —— */
 :root {
   --color-bg: #040c18;
   --color-text: #ffffff;
@@ -68,7 +67,6 @@ body {
   padding-inline: clamp(16px, 4vw, 40px);
 }
 
-/* —— Ambient blur (blur-01, blur-03) —— */
 .page-glow {
   pointer-events: none;
   position: fixed;
@@ -100,7 +98,6 @@ body {
   background: var(--blur-3);
 }
 
-/* —— Header / nav —— */
 .header {
   position: relative;
   z-index: 2;
@@ -200,7 +197,6 @@ body {
   filter: brightness(1.06);
 }
 
-/* —— Hero —— */
 .hero {
   position: relative;
   z-index: 1;
@@ -336,7 +332,6 @@ body {
   color: var(--color-text);
 }
 
-/* —— Hero illustration: разметка и слои в css/vectors.css —— */
 .hero__visual {
   position: relative;
   display: flex;
@@ -344,7 +339,6 @@ body {
   align-items: center;
 }
 
-/* —— Companies (после hero, как в Figma) —— */
 .companies {
   position: relative;
   z-index: 1;
@@ -377,7 +371,6 @@ body {
   filter: grayscale(0.4) brightness(1.05);
 }
 
-/* —— Что такое GPT-4 —— */
 .what-is {
   position: relative;
   z-index: 1;
@@ -393,13 +386,20 @@ body {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.what-is__top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 28px;
+.what-is__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "intro lead"
+    "subtitle link";
+  column-gap: clamp(32px, 5vw, 64px);
+  row-gap: clamp(28px, 4vw, 40px);
+  margin-bottom: 48px;
+  align-items: start;
+}
+
+.what-is__intro {
+  grid-area: intro;
 }
 
 .what-is__title {
@@ -424,9 +424,12 @@ body {
 }
 
 .what-is__link {
+  grid-area: link;
+  align-self: end;
+  justify-self: start;
   font-weight: 500;
   font-size: 16px;
-  line-height: 30px;
+  line-height: 1.32;
   color: var(--color-accent-link);
   text-decoration: none;
 }
@@ -436,9 +439,10 @@ body {
 }
 
 .what-is__lead {
-  margin: 0 0 40px;
+  grid-area: lead;
+  margin: 0;
   max-width: 731px;
-  margin-left: auto;
+  justify-self: end;
   font-weight: 500;
   font-size: 16px;
   line-height: 30px;
@@ -446,8 +450,10 @@ body {
 }
 
 .what-is__subtitle {
-  margin: 0 0 48px;
+  grid-area: subtitle;
+  margin: 0;
   max-width: 472px;
+  align-self: end;
   font-weight: 800;
   font-size: clamp(26px, 3vw, 34px);
   line-height: 1.32;
@@ -488,7 +494,7 @@ body {
   color: var(--color-body);
 }
 
-/* —— Список преимуществ —— */
+
 .feature-list {
   position: relative;
   z-index: 1;
@@ -569,7 +575,6 @@ body {
   color: var(--color-body);
 }
 
-/* —— Блок с визуалом (VR / иллюстрация) —— */
 .feature-showcase {
   position: relative;
   z-index: 1;
@@ -584,17 +589,104 @@ body {
 }
 
 .feature-showcase__visual {
-  min-height: 420px;
+  min-height: 0;
   position: relative;
 }
 
-.feature-showcase__shape {
+.feature-showcase__illu {
+  position: relative;
+  max-width: min(100%, 520px);
+  margin-inline: 0 auto;
+}
+
+.feature-showcase__decor {
   position: absolute;
-  inset: 8% 6% 12% 0;
-  border-radius: 184px 0 0 0;
-  background: linear-gradient(145deg, #042c54 0%, #0f6bcd 45%, #27a6f4 100%);
-  opacity: 0.9;
-  box-shadow: 0 24px 60px rgba(15, 107, 205, 0.15);
+  inset: -4% -6% -6% -10%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.feature-showcase__decor-rect {
+  position: absolute;
+  left: 0;
+  top: 22%;
+  width: 34%;
+  height: 58%;
+  background: rgba(15, 107, 205, 0.14);
+  border: 1px solid rgba(129, 175, 221, 0.18);
+}
+
+.feature-showcase__decor-rings {
+  position: absolute;
+  right: 4%;
+  top: 8%;
+  width: min(58%, 280px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(129, 175, 221, 0.28);
+  box-shadow:
+    0 0 0 36px rgba(4, 44, 84, 0.35),
+    0 0 0 37px rgba(129, 175, 221, 0.12),
+    0 0 0 72px rgba(4, 44, 84, 0.2),
+    0 0 0 73px rgba(129, 175, 221, 0.08);
+}
+
+.feature-showcase__frame {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  max-width: 100%;
+  margin: clamp(16px, 4vw, 36px) 0 0 clamp(8px, 2vw, 24px);
+  padding: 11px;
+  border: 2px solid #ae67fa;
+  line-height: 0;
+}
+
+.feature-showcase__photo {
+  display: block;
+  width: 100%;
+  max-width: 475px;
+  height: auto;
+}
+
+.feature-showcase__badge {
+  position: absolute;
+  z-index: 2;
+}
+
+.feature-showcase__badge--chat {
+  left: -6px;
+  top: -6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #042c54;
+  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+}
+
+.feature-showcase__badge--apps {
+  right: clamp(-12px, -2vw, -8px);
+  top: 40%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff4820 0%, #ff8a71 100%);
+  box-shadow: 0 14px 36px rgba(255, 72, 32, 0.38);
+  white-space: nowrap;
+}
+
+.feature-showcase__apps-icon {
+  flex-shrink: 0;
 }
 
 .feature-showcase__content {
@@ -620,7 +712,12 @@ body {
   font-weight: 800;
   font-size: clamp(28px, 3vw, 34px);
   line-height: 1.32;
-  background: var(--gradient-heading);
+  background: linear-gradient(
+    89.97deg,
+    #f49867 0%,
+    #e879f9 45%,
+    #ae67fa 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -647,7 +744,6 @@ body {
   text-decoration: underline;
 }
 
-/* —— CTA-полоса —— */
 .cta-banner {
   position: relative;
   z-index: 1;
@@ -711,7 +807,6 @@ body {
   filter: brightness(1.12);
 }
 
-/* —— Блог —— */
 .blog {
   position: relative;
   z-index: 1;
@@ -742,7 +837,6 @@ body {
 .blog-card {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   background: var(--color-card);
   overflow: hidden;
 }
@@ -750,6 +844,7 @@ body {
 .blog-card--large {
   grid-column: 1;
   grid-row: 1 / -1;
+  min-height: 100%;
 }
 
 .blog-card:nth-child(2) {
@@ -773,7 +868,10 @@ body {
 }
 
 .blog-card__thumb {
+  flex: 0 0 auto;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
   background: #103a5c;
 }
 
@@ -781,12 +879,36 @@ body {
   min-height: 287px;
 }
 
+/* Фиксированная высота + обрезка низа: в vlog*.svg в PNG часто попадает
+   вся карточка с датой/заголовком — они дублируют разметку под превью. */
 .blog-card:not(.blog-card--large) .blog-card__thumb {
-  min-height: 130px;
+  height: 131px;
+  min-height: 131px;
+  max-height: 131px;
 }
 
-.blog-card__thumb--placeholder {
-  background: linear-gradient(120deg, #042c54 0%, #1a6da1 50%, #0f3e5c 100%);
+.blog-card__img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.blog-card--large .blog-card__img {
+  min-height: 287px;
+  object-fit: cover;
+  object-position: top center;
+  clip-path: inset(0 0 16% 0);
+}
+
+.blog-card:not(.blog-card--large) .blog-card__img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  clip-path: inset(0 0 26% 0);
 }
 
 .blog-card__body {
@@ -829,7 +951,6 @@ body {
   color: var(--color-accent-link);
 }
 
-/* —— Подвал —— */
 .footer {
   position: relative;
   z-index: 1;
@@ -991,8 +1112,23 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .what-is__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "lead"
+      "subtitle"
+      "link";
+  }
+
   .what-is__lead {
-    margin-left: 0;
+    justify-self: start;
+    max-width: none;
+  }
+
+  .what-is__subtitle,
+  .what-is__link {
+    align-self: start;
   }
 
   .feature-list__layout {
@@ -1008,8 +1144,11 @@ body {
   }
 
   .feature-showcase__visual {
-    min-height: 320px;
     max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .feature-showcase__illu {
     margin-inline: auto;
   }
 

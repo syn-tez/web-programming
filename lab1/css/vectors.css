@@ -1,9 +1,3 @@
-/**
- * Header Illustration — Figma «Header Illustration» / «Illustration»
- * Размеры блока: 667.41 × 701.59 px; Ellipse 38: #0F6BCD, blur 107px.
- * Графика: head.svg (путь относительно этой таблицы стилей: ../img/head.svg).
- */
-
 .header-illustration {
   position: relative;
   width: min(100%, 667.41px);
@@ -13,7 +7,6 @@
   isolation: isolate;
 }
 
-/* Ellipse 38 — свечение за «лицом» (центр относительно макета) */
 .header-illustration__glow {
   position: absolute;
   z-index: 0;
@@ -28,7 +21,7 @@
   pointer-events: none;
 }
 
-/* Слой с векторной сеткой (экспорт Figma → head.svg) */
+/* Слой с векторной сеткой */
 .header-illustration__art {
   position: absolute;
   z-index: 1;
@@ -41,7 +34,7 @@
   pointer-events: none;
 }
 
-/* Угловые скобки — по финальным Vector с border ≈ 3.24px в макете */
+/* Угловые скобки */
 .header-illustration__corners {
   position: absolute;
   z-index: 2;
