@@ -13,7 +13,7 @@
   src: url(../fonts/Manrope-Light.ttf);
 }
 /* Определение базового класса для градиентного текста */
-.gradient_text, .farewell_section .farewell_section__top .top__header, .blog_section .blog_section__header, .showcase_section .showcase_section__right .right__header {
+.gradient_text, .blog_section .blog_section__header, .showcase_section .showcase_section__right .right__header {
   background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -587,72 +587,97 @@ p {
 }
 
 /* Секция Footer */
-.farewell_section {
+.footer_section {
   width: 100%;
   background: #031b34;
   margin-top: 8rem;
+  padding: 4rem 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.farewell_section .farewell_section__top {
+.footer_section .footer_section__top {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.farewell_section .farewell_section__top .top__header {
-  font-family: "ManropeBold";
+.footer_section .footer_section__top .top__header {
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "ManropeBold", sans-serif;
   font-size: 62px;
-  margin-bottom: 3rem;
+  line-height: 75px;
+  margin-bottom: 4rem;
+  max-width: 800px;
 }
-.farewell_section .farewell_section__top .top__button {
+.footer_section .footer_section__top .top__button {
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
   padding: 1.5rem 3rem;
   font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.farewell_section .farewell_section__bottom {
+.footer_section .footer_section__top .top__button:hover {
+  background: #fff;
+  color: #031b34;
+}
+.footer_section .footer_section__bottom {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 4rem;
+  gap: 4rem;
 }
-.farewell_section .farewell_section__bottom .footer__logo_block {
+.footer_section .footer_section__bottom .footer__logo_block {
   flex: 1;
 }
-.farewell_section .farewell_section__bottom .footer__logo_block .footer__logo {
+.footer_section .footer_section__bottom .footer__logo_block .footer__logo {
   width: 118px;
   margin-bottom: 1.5rem;
 }
-.farewell_section .farewell_section__bottom .footer__logo_block .footer__description {
+.footer_section .footer_section__bottom .footer__logo_block .footer__description {
   color: #fff;
   font-size: 12px;
   line-height: 20px;
 }
-.farewell_section .farewell_section__bottom .footer__links {
-  flex: 2;
+.footer_section .footer_section__bottom .footer__links {
+  flex: 3;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-.farewell_section .farewell_section__bottom .footer__links .footer__header {
+.footer_section .footer_section__bottom .footer__links .footer__block .footer__header {
   color: #fff;
   font-size: 14px;
-  margin-bottom: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
-.farewell_section .farewell_section__bottom .footer__links .menu__item {
+.footer_section .footer_section__bottom .footer__links .footer__block .menu {
+  padding: 0;
   list-style: none;
+}
+.footer_section .footer_section__bottom .footer__links .footer__block .menu .menu__item {
   margin-bottom: 1rem;
 }
-.farewell_section .farewell_section__bottom .footer__links .menu__item .item__link {
+.footer_section .footer_section__bottom .footer__links .footer__block .menu .menu__item .item__link {
+  text-decoration: none;
   font-size: 12px;
   color: #fff;
+  transition: opacity 0.3s;
 }
-
-.law_section {
-  padding: 2rem 0;
+.footer_section .footer_section__bottom .footer__links .footer__block .menu .menu__item .item__link:hover {
+  opacity: 0.7;
+}
+.footer_section .footer_section__law {
+  margin-top: 4rem;
+  padding-top: 2rem;
   text-align: center;
+  width: 100%;
 }
-.law_section .law__block {
+.footer_section .footer_section__law .law__text {
   color: #fff;
   font-size: 12px;
 }
