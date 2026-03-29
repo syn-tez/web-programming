@@ -1,4 +1,4 @@
-/* import showcaseData from "../../mockData/showcaseData.js";
+import showcaseData from "../../mockData/showcaseData.js";
 import { showcaseTemplate } from "../templates/showcaseTemplate.js";
 
 const initShowcase = (showcaseNode) => {
@@ -8,9 +8,9 @@ const initShowcase = (showcaseNode) => {
   );
 };
 
-export default initShowcase; */
+export default initShowcase;
 
-import showcaseData from "../../mockData/showcaseData.js";
+/* import showcaseData from "../../mockData/showcaseData.js";
 import { showcaseTemplate } from "../templates/showcaseTemplate.js";
 
 const initShowcase = (showcaseNode) => {
@@ -31,4 +31,4 @@ const initShowcase = (showcaseNode) => {
   console.log("HTML вставлен в DOM"); // Маячок 3
 };
 
-export default initShowcase;
+export default initShowcase; */

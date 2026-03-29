@@ -2,32 +2,32 @@ export const header = "Многое Происходит, Мы Ведем об �
 
 export const articles = [
   {
-    image: "./assets/img/vlogs/vlog1.svg",
+    image: "./assets/img/blogs/blog_1.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
     isLarge: true,
   },
   {
-    image: "./assets/img/vlogs/vlog2.svg",
+    image: "./assets/img/blogs/blog_2.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
   },
   {
-    image: "./assets/img/vlogs/vlog3.svg",
+    image: "./assets/img/blogs/blog_4.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
   },
   {
-    image: "./assets/img/vlogs/vlog4.svg",
+    image: "./assets/img/blogs/blog_3.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
   },
   {
-    image: "./assets/img/vlogs/vlog5.svg",
+    image: "./assets/img/blogs/blog_5.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",

@@ -5,6 +5,9 @@ import initWhatIsGpt from "./../components/initWhatIsGpt.js";
 import initFutureHere from "./../components/initFutureHere.js";
 import initBurger from "./../components/initBurger.js";
 import initShowcase from "./../components/initShowcase.js";
+import initCTA from "./../components/initCta.js";
+import initBlog from "./../components/initBlog.js";
+import initFooter from "./../components/initFooter.js";
 
 const createHomePageTemplate = (rootNode) => {
   // формируем шаблон базовых секций для дальнейшего монтирования в них
@@ -16,6 +19,9 @@ const createHomePageTemplate = (rootNode) => {
     <section class="section what_is_chatgpt_section"></section>
     <section class="section future_here"></section>
     <section class="section showcase_section_wrapper"></section>
+    <section class="section cta_section"></section>
+    <section class="section blog_section"></section>
+    <section class="section footer_section"></section>
   `;
 
   rootNode.insertAdjacentHTML("beforeend", template); 
@@ -53,6 +59,15 @@ const homePage = () => {
   if (showcaseNode) {
       initShowcase(showcaseNode);
   }
+
+  const ctaNode = rootNode.querySelector(".cta_section");
+  initCTA(ctaNode);
+
+  const blogNode = rootNode.querySelector(".blog_section");
+  initBlog(blogNode);
+
+  const footerNode = rootNode.querySelector(".footer_section");
+  initFooter(footerNode);
 };
 
 export default homePage;
