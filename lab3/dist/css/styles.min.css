@@ -457,7 +457,7 @@ p {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-top: 8rem;
+  margin-top: 1rem;
 }
 .showcase_section .showcase_section__left {
   flex: 1;
