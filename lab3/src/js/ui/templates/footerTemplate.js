@@ -1,3 +1,18 @@
+export const createFooterColumnTemplate = ({ title, items }) => `
+    <div class="footer__block">
+        <h3 class="footer__header">${title}</h3>
+        <aside class="footer__menu">
+            <ul class="menu">
+                ${items.map(item => `
+                    <li class="menu__item">
+                        <a href="#" class="item__link">${item}</a>
+                    </li>
+                `).join("")}
+            </ul>
+        </aside>
+    </div>
+`;
+
 export const footerTemplate = ({ 
     mainHeader, 
     mainButtonTitle, 

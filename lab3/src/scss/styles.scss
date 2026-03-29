@@ -686,7 +686,7 @@ p {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    gap: 4rem; // Расстояние между лого и ссылками
+    gap: 4rem;
 
     .footer__logo_block {
       flex: 1;
@@ -706,7 +706,6 @@ p {
       display: flex;
       justify-content: space-between;
 
-      // Стили для колонок (createFooterColumnTemplate)
       .footer__block {
         .footer__header {
           color: #fff;
