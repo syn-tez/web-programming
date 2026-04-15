@@ -26,17 +26,17 @@ const Home = () => {
       <section className="section future_here">
         <FutureHere />
       </section>
-      <section className="section blog">
-        <Blog />
+      <section className="section showcase">
+        <Showcase />
       </section>
       <section className="section cta">
         <Cta />
       </section>
+      <section className="section blog">
+        <Blog />
+      </section>
       <section className="section footer">
         <Footer />
-      </section>
-      <section className="section showcase">
-        <Showcase />
       </section>
     </>
   );
