@@ -3,6 +3,10 @@ import Hero from "../components/Hero";
 import Brands from "../components/Brands";
 import WhatIsChatGpt from "../components/WhatIsChatGpt";
 import FutureHere from "../components/FutureHere";
+import Blog from "../components/Blog";
+import Showcase from "../components/Showcase";
+import Cta from "../components/Cta";
+import Footer from "../components/Footer";
 
 const Home = ({ isEditable }) => {
   return (
@@ -25,6 +29,18 @@ const Home = ({ isEditable }) => {
       </section>
       <section className="section future_here" id="future">
         <FutureHere />
+      </section>
+      <section className="section showcase_section" id="showcase">
+        <Showcase />
+      </section>
+      <section className="section cta_section" id="cta">
+        <Cta />
+      </section>
+      <section className="section blog_section" id="blog">
+        <Blog />
+      </section>
+      <section className="section footer" id="footer">
+        <Footer />
       </section>
     </>
   );
