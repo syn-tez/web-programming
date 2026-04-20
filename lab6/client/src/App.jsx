@@ -17,19 +17,19 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/library",
+    path: "library",
     element: <Library />,
   },
   {
-    path: "/login",
+    path: "login",
     element: <Login />,
   },
   {
-    path: "/admin",
+    path: "admin",
     element: <AdminLogin />,
   },
   {
-    path: "/admin/home",
+    path: "admin/home",
     element: <Home isEditable={true} />,
   },
   {

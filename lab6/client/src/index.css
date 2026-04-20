@@ -129,8 +129,27 @@ p {
 }
 
 .lined_header {
-  background: url("./assets/img/gradient_line.svg") no-repeat 0 0 transparent;
+  background: url("./assets/img/gradient_line.svg") no-repeat 0 0
+    transparent;
   padding: 1rem 0;
+}
+
+.preloader {
+  border: 8px solid #fff;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Стили для Шапки */
@@ -191,16 +210,19 @@ p {
   display: none;
 }
 
-.header .header__menu .menu .menu__item a {
+.header .header__menu .menu .menu__item .item__link {
   color: #fff;
+  border: none;
   border-bottom: 1px solid transparent;
+  background: transparent;
+  font-size: 16px;
 }
 
-.header .header__menu .menu .menu__item:hover a {
+.header .header__menu .menu .menu__item:hover .item__link {
   border-bottom-color: #fff;
 }
 
-.header .header__menu .menu .menu__item.active a {
+.header .header__menu .menu .menu__item.active .item__link {
   color: #f49867;
   border-bottom-color: #f49867;
 }
@@ -397,7 +419,7 @@ p {
 .future_here .future_here__left {
   display: flex;
   flex-direction: column;
-  align-items: flex-flex-start;
+  align-items: flex-start;
   row-gap: 2rem;
   flex: 2;
 }
@@ -435,6 +457,58 @@ p {
 .future_here .future_here__right .right__container .container__content {
   width: 55%;
   color: #81afdd;
+}
+
+/* Админка */
+
+.admin_section {
+  display: flex;
+  width: 100%;
+  max-width: 1169px;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin_section .form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.admin_section .form label {
+  color: #fff;
+  display: flex;
+  /* column-gap: 1rem; */
+  align-items: center;
+}
+
+.admin_section .form label span {
+  width: 30%;
+}
+
+.admin_section .form input[type="text"] {
+  width: 70%;
+  padding: 12px;
+}
+
+.admin_section .form input[type="button"],
+.admin_section .form input[type="submit"] {
+  background: #ff4820;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  padding: 18px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.admin_section .form input[type="button"]:hover,
+.admin_section .form input[type="submit"]:hover {
+  background-color: #ae67fa;
+  transition: all 0.3s ease-out;
 }
 
 
@@ -478,7 +552,6 @@ p {
   cursor: pointer;
 }
 
-
 /* Стили для CTA */
 .cta_section {
   display: flex;
@@ -508,7 +581,6 @@ p {
   border-radius: 40px;
   border: none;
 }
-
 
 /* Стили для Footer */
 .footer_section {
@@ -549,7 +621,6 @@ p {
   flex-direction: column;
   row-gap: 1.5rem;
 }
-
 
 /* Стили для Showcase */
 .showcase_section {
