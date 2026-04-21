@@ -71,4 +71,6 @@ const {
   postFooterData,
 } = require("../controllers/footerDataController");
 
+router.route("/footer").get(getFooterData).post(postFooterData);
+
 module.exports = router;
