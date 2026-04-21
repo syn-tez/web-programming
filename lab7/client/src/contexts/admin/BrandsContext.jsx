@@ -7,12 +7,34 @@ const PostBrandsContext = createContext();
 const BrandsContextProvider = ({ children }) => {
   const data = useRef(brandsData);
 
+  const postData = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/cms/brands", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data.current),
+      });
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      return {
+        isPostDataError: true,
+        postDataError: error.message,
+      };
+    }
+  };
+
   // Возвращаем 2 контекста
   // 1 - для получения данных
   // 2 - для отправки данных на сервер и получения результата
   return (
     <BrandsContext.Provider value={data.current}>
-      {children}
+      <PostBrandsContext.Provider value={postData}>
+        {children}
+      </PostBrandsContext.Provider>
     </BrandsContext.Provider>
   );
 };
