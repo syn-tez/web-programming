@@ -8,35 +8,48 @@ import {
 
 const AdminBlogItem = ({ item, index }) => {
     const [titleData, setTitleData] = useState(item.title);
-    const [textData, setTextData] = useState(item.text);
+    const [dateData, setDateData] = useState(item.date);
+    const [isLargeData, setIsLargeData] = useState(item.isLarge);
+    
     let blogContext = useBlogContext();
 
     const handleTitleData = (e) => {
         setTitleData(e.target.value);
-        blogContext.posts[index].title = e.target.value;
+        blogContext.articles[index].title = e.target.value;
     };
 
-    const handleTextData = (e) => {
-        setTextData(e.target.value);
-        blogContext.posts[index].text = e.target.value;
+    const handleDateData = (e) => {
+        setDateData(e.target.value);
+        blogContext.articles[index].date = e.target.value;
+    };
+
+    const handleIsLarge = (e) => {
+        setIsLargeData(e.target.checked);
+        blogContext.articles[index].isLarge = e.target.checked;
     };
 
     return (
-        <div className="block__card">
-        <div className="block__item">
-            <label>Заголовок поста:</label>
-            <input type="text" value={titleData} onChange={handleTitleData} />
-        </div>
-        <div className="block__item">
-            <label>Текст поста:</label>
-            <textarea value={textData} onChange={handleTextData} />
-        </div>
+        <div className="block__card" style={{ border: '1px solid #444', padding: '15px', marginBottom: '15px' }}>
+            <div className="block__item">
+                <label>
+                    <input type="checkbox" checked={isLargeData} onChange={handleIsLarge} />
+                    Большая карточка
+                </label>
+            </div>
+            <div className="block__item">
+                <label>Заголовок статьи:</label>
+                <input type="text" value={titleData} onChange={handleTitleData} />
+            </div>
+            <div className="block__item">
+                <label>Дата:</label>
+                <input type="text" value={dateData} onChange={handleDateData} />
+            </div>
         </div>
     );
 };
 
 const AdminBlog = () => {
-    const { isLoading, isError, error, data } = useData({
+    const { isLoading, isError, data } = useData({
         endpoint: "blog",
         options: { method: "GET" },
     });
@@ -47,9 +60,9 @@ const AdminBlog = () => {
     const handlePostData = async () => {
         setIsPostDataLoading(true);
         try {
-        await postData();
+            await postData();
         } catch (e) {
-        console.error(e);
+            console.error(e);
         }
         setIsPostDataLoading(false);
     };
@@ -58,15 +71,17 @@ const AdminBlog = () => {
 
     return (
         <div className="admin_container">
-        <h2>Блог</h2>
-        <div className="admin_container__block">
-            {data.posts.map((item, index) => (
-            <AdminBlogItem key={index} item={item} index={index} />
-            ))}
-        </div>
-        <button className="btn primary-btn" onClick={handlePostData}>
-            {isPostDataLoading && <Preloader />} Сохранить
-        </button>
+            <h2>Настройка Блога</h2>
+            <div className="admin_container__block">
+                {/* Заменили posts на articles */}
+                {data.articles?.map((item, index) => (
+                    <AdminBlogItem key={index} item={item} index={index} />
+                ))}
+            </div>
+
+            <button className="btn primary_btn" onClick={handlePostData}>
+                {isPostDataLoading ? "Сохранение..." : "Сохранить изменения"}
+            </button>
         </div>
     );
 };

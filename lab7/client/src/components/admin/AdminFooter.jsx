@@ -7,76 +7,81 @@ import {
 } from "../../contexts/admin/FooterContext";
 
 const AdminFooterLogo = ({ logoData }) => {
-    const [descriptionData, setDescriptionData] = useState(logoData.description);
+    const [addressData, setAddressData] = useState(logoData?.address || "");
+    const [rightsData, setRightsData] = useState(logoData?.rights || "");
     let footerContext = useFooterContext();
 
-    const handleDescription = (e) => {
-        setDescriptionData(e.target.value);
-        footerContext.logoData.description = e.target.value;
+    const handleAddress = (e) => {
+        setAddressData(e.target.value);
+        footerContext.brandInfo.address = e.target.value;
+    };
+
+    const handleRights = (e) => {
+        setRightsData(e.target.value);
+        footerContext.brandInfo.rights = e.target.value;
     };
 
     return (
         <div className="admin_container__block">
-        <h3>Описание в футере:</h3>
-        <div className="block__item">
-            <label>Текст под логотипом:</label>
-            <textarea 
-            value={descriptionData} 
-            onChange={handleDescription} 
-            style={{ width: '100%', height: '100px' }}
-            />
-        </div>
+            <h3>Данные бренда:</h3>
+            <div className="block__item">
+                <label>Адрес:</label>
+                <input type="text" value={addressData} onChange={handleAddress} />
+            </div>
+            <div className="block__item">
+                <label>Права (Copyright):</label>
+                <input type="text" value={rightsData} onChange={handleRights} />
+            </div>
         </div>
     );
 };
 
-const AdminFooterLinksGroup = ({ group, groupIndex }) => {
-    const [titleData, setTitleData] = useState(group.title);
+const AdminFooterLinksGroup = ({ group, groupKey }) => {
+    const [titleData, setTitleData] = useState(group?.title || "");
     let footerContext = useFooterContext();
 
     const handleGroupTitle = (e) => {
         setTitleData(e.target.value);
-        footerContext.linksData[groupIndex].title = e.target.value;
+        footerContext[groupKey].title = e.target.value;
     };
 
     return (
-    <div className="block__card">
-        <div className="block__item">
+        <div className="admin_footer__group" style={{ marginBottom: '20px', padding: '10px', border: '1px solid #444' }}>
             <label>Заголовок колонки:</label>
             <input type="text" value={titleData} onChange={handleGroupTitle} />
-        </div>
-        <h4>Ссылки в колонке:</h4>
-        {group.links.map((link, linkIndex) => (
-            <AdminFooterSingleLink 
-            key={linkIndex} 
-            link={link} 
-            groupIndex={groupIndex} 
-            linkIndex={linkIndex} 
-            />
-        ))}
+            <div className="admin_footer__links">
+                {group?.items?.map((item, index) => (
+                    <AdminFooterLink 
+                        key={index} 
+                        item={item} 
+                        index={index} 
+                        groupKey={groupKey} 
+                    />
+                ))}
+            </div>
         </div>
     );
 };
 
-const AdminFooterSingleLink = ({ link, groupIndex, linkIndex }) => {
-    const [textData, setTextData] = useState(link.text);
+const AdminFooterLink = ({ item, index, groupKey }) => {
+    const [textData, setTextData] = useState(item);
     let footerContext = useFooterContext();
 
     const handleLinkText = (e) => {
         setTextData(e.target.value);
-        footerContext.linksData[groupIndex].links[linkIndex].text = e.target.value;
+        footerContext[groupKey].items[index] = e.target.value;
     };
 
     return (
-        <div className="block__item" style={{ marginLeft: '20px', borderLeft: '1px solid #ccc', paddingLeft: '10px' }}>
-        <label>Текст ссылки:</label>
-        <input type="text" value={textData} onChange={handleLinkText} />
+        <div className="block__item" style={{ marginLeft: '20px' }}>
+            <label>Ссылка {index + 1}:</label>
+            <input type="text" value={textData} onChange={handleLinkText} />
         </div>
     );
 };
 
 const AdminFooter = () => {
-    const { isLoading, isError, error, data } = useData({
+    const { isLoading, isError, data } = useData({
         endpoint: "footer",
         options: { method: "GET" },
     });
@@ -87,9 +92,9 @@ const AdminFooter = () => {
     const handlePostData = async () => {
         setIsPostDataLoading(true);
         try {
-        await postData();
+            await postData();
         } catch (e) {
-        console.error(e);
+            console.error(e);
         }
         setIsPostDataLoading(false);
     };
@@ -98,20 +103,20 @@ const AdminFooter = () => {
 
     return (
         <div className="admin_container">
-        <h2>Футер</h2>
-        <AdminFooterLogo logoData={data.logoData} />
-        
-        <div className="admin_container__block">
-            <h3>Группы ссылок:</h3>
-            {data.linksData.map((group, index) => (
-            <AdminFooterLinksGroup key={index} group={group} groupIndex={index} />
-            ))}
-        </div>
+            <h2>Настройка Футера</h2>
+            
+            <AdminFooterLogo logoData={data.brandInfo} />
+            
+            <div className="admin_container__block">
+                <h3>Колонки ссылок:</h3>
+                <AdminFooterLinksGroup group={data.linksCol} groupKey="linksCol" />
+                <AdminFooterLinksGroup group={data.companyCol} groupKey="companyCol" />
+                <AdminFooterLinksGroup group={data.contactsCol} groupKey="contactsCol" />
+            </div>
 
-        <button className="btn primary-btn" onClick={handlePostData}>
-            {isPostDataLoading && <Preloader />} Сохранить
-        </button>
-        {isError && <div className="error">{JSON.stringify(error)}</div>}
+            <button className="btn primary_btn" onClick={handlePostData}>
+                {isPostDataLoading ? "Сохранение..." : "Сохранить изменения"}
+            </button>
         </div>
     );
 };
