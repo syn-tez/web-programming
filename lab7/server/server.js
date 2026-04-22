@@ -2,6 +2,7 @@
 // аналогичен import X from 'ROUTE' из es6
 require("dotenv").config();
 const express = require("express");
+const cors = require('cors');
 
 // импортируем роутер
 const router = require("./routers/router");
@@ -12,6 +13,13 @@ const app = express();
 
 // middleware для использования json
 app.use(express.json());
+
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: "GET, POST",
+  allowedHeaders: "Content-Type, Authorization",
+})
+);
 
 // добавляем роутер в приложение
 app.use("/api/cms", router);

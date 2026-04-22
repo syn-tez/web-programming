@@ -1,17 +1,17 @@
 /* Подключение шрифтов */
 @font-face {
   font-family: "ManropeBold";
-  src: url(./assets/fonts/Manrope-Bold.ttf);
+  src: url(../public/assets/fonts/Manrope-Bold.ttf);
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url(./assets/fonts/Manrope-Regular.ttf);
+  src: url(../public/assets/fonts/Manrope-Regular.ttf);
 }
 
 @font-face {
   font-family: "ManropeLight";
-  src: url(./assets/fonts/Manrope-Light.ttf);
+  src: url(../public/assets/fonts/Manrope-Light.ttf);
 }
 
 /* Сброс базовых стилей */
@@ -129,7 +129,7 @@ p {
 }
 
 .lined_header {
-  background: url("./assets/img/gradient_line.svg") no-repeat 0 0
+  background: url("../public/assets/img/gradient_line.svg") no-repeat 0 0
     transparent;
   padding: 1rem 0;
 }
@@ -343,7 +343,7 @@ p {
   padding: 3rem;
   margin: 6rem 0;
   row-gap: 7rem;
-  background: url(./assets/img/what_is_gpt_3_bg.svg) no-repeat 0 0 / cover;
+  background: url(../public/assets/img/what_is_gpt_3_bg.svg) no-repeat 0 0 / cover;
 }
 
 .what_is_chatgpt_section .what_is_chatgpt_section__top {
@@ -557,10 +557,9 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem;
+  padding: 2rem 3rem;
   background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   border-radius: 10px;
-  margin: 4rem 0;
 }
 
 .cta_section .left__cta {
@@ -572,6 +571,8 @@ p {
   color: #000;
   background: none;
   -webkit-text-fill-color: initial;
+  font-size: 24px;
+  margin: 0;
 }
 
 .cta_section .right__button {
@@ -608,7 +609,7 @@ p {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
 }
 
 .footer__links {

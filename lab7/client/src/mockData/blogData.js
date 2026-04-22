@@ -1,39 +1,33 @@
-import blog1 from "../assets/img/blogs/blog_1.svg";
-import blog2 from "../assets/img/blogs/blog_2.svg";
-import blog3 from "../assets/img/blogs/blog_3.svg";
-import blog4 from "../assets/img/blogs/blog_4.svg";
-import blog5 from "../assets/img/blogs/blog_5.svg";
-
 export const header = "Многое Происходит, Мы Ведем об Этом Блог.";
 
 export const articles = [
   {
-    image: blog1,
+    image: "./assets/img/blogs/blog_1.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
     isLarge: true,
   },
   {
-    image: blog2,
+    image: "./assets/img/blogs/blog_2.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
   },
   {
-    image: blog4,
+    image: "./assets/img/blogs/blog_4.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
   },
   {
-    image: blog3,
+    image: "./assets/img/blogs/blog_3.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",
   },
   {
-    image: blog5,
+    image: "./assets/img/blogs/blog_5.svg",
     date: "Сент 26, 2021",
     title: "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
     linkText: "Читать полную статью",

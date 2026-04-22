@@ -1,7 +1,5 @@
-import showcaseSvg from "../assets/img/showcase.svg";
-
 export const illustration = {
-  src: showcaseSvg,
+  src: "./assets/img/showcase.svg",
   alt: "showcase",
 };
 
