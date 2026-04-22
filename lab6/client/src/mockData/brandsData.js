@@ -1,28 +1,22 @@
-import googleSvg from "../assets/img/brands/google.svg";
-import slackSvg from "../assets/img/brands/slack.svg";
-import atlassianSvg from "../assets/img/brands/atlassian.svg";
-import dropboxSvg from "../assets/img/brands/dropbox.svg";
-import shopifySvg from "../assets/img/brands/shopify.svg";
-
 const brandsData = [
   {
-    src: googleSvg,
+    src: "./assets/img/brands/google.svg",
     alt: "google",
   },
   {
-    src: slackSvg,
+    src: "./assets/img/brands/slack.svg",
     alt: "slack",
   },
   {
-    src: atlassianSvg,
+    src: "./assets/img/brands/atlassian.svg",
     alt: "atlassian",
   },
   {
-    src: dropboxSvg,
+    src: "./assets/img/brands/dropbox.svg",
     alt: "dropbox",
   },
   {
-    src: shopifySvg,
+    src: "./assets/img/brands/shopify.svg",
     alt: "shopify",
   },
 ];
