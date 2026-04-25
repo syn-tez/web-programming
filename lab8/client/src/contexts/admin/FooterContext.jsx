@@ -65,8 +65,8 @@ const FooterContextProvider = ({ children }) => {
     );
 };
 
-export const useFooterContext = () => useContext(FooterContext);
-export const usePostFooterContext = () => useContext(PostFooterContext);
+const useFooterContext = () => useContext(FooterContext);
+const usePostFooterContext = () => useContext(PostFooterContext);
 
 export { useFooterContext, usePostFooterContext };
 export default FooterContextProvider;

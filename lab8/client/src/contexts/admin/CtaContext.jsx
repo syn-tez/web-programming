@@ -1,9 +1,9 @@
 import { createContext, useContext, useRef, useState } from "react";
-import blogData from "../../mockData/blogData";
+import ctaData from "../../mockData/ctaData";
 
 const controller = new AbortController();
 const signal = controller.signal;
-const endpoint = "blog";
+const endpoint = "cta";
 const options = {
     method: "POST",
     headers: {
@@ -11,11 +11,11 @@ const options = {
     },
 };
 
-const BlogContext = createContext();
-const PostBlogContext = createContext();
+const CtaContext = createContext();
+const PostCtaContext = createContext();
 
-const BlogContextProvider = ({ children }) => {
-    const data = useRef(blogData);
+const CtaContextProvider = ({ children }) => {
+    const data = useRef(ctaData);
     const [isPostDataLoading, setIsPostDataLoading] = useState(false);
     const [isPostDataError, setIsPostDataError] = useState(false);
     const [postDataError, setPostDataError] = useState(null);
@@ -28,7 +28,7 @@ const BlogContextProvider = ({ children }) => {
             setIsPostDataLoading(true);
 
             try {
-                const response = await fetch(url, options, signal)
+                const response = await fetch(url, options, signal);
                 const jsonData = await response.json();
 
                 if (!response.ok) {
@@ -51,22 +51,22 @@ const BlogContextProvider = ({ children }) => {
                 isPostDataError,
                 postDataError,
             };
-        };
-
+        }
+        
         return await fetchData();
     };
 
     return (
-        <BlogContext.Provider value={data.current}>
-            <PostBlogContext.Provider value={postData}>
+        <CtaContext.Provider value={data.current}>
+            <PostCtaContext.Provider value={postData}>
                 {children}
-            </PostBlogContext.Provider>
-        </BlogContext.Provider>
+            </PostCtaContext.Provider>
+        </CtaContext.Provider>
     );
 };
 
-const useBlogContext = () => useContext(BlogContext);
-const usePostBlogContext = () => useContext(PostBlogContext);
+const useCtaContext = () => useContext(CtaContext);
+const usePostCtaContext = () => useContext(PostCtaContext);
 
-export { useBlogContext, usePostBlogContext };
-export default BlogContextProvider;
+export { useCtaContext, usePostCtaContext };
+export default CtaContextProvider;
