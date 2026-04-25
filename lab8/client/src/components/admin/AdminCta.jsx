@@ -9,10 +9,12 @@ import {
 import usePostData from "../../hooks/usePostData";
 
 const AdminCta = () => {
-    const { isLoading, data } = useData({
-        endpoint: "cta",
-        options: { method: "GET" },
-    });
+    const {
+        postData: data,
+        status,
+        statusDescription,
+        postDataFunc,
+    } = usePostData({ endpoint: "cta" });
 
     const [headerData, setHeaderData] = useState("");
     const [contentData, setContentData] = useState("");
