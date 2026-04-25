@@ -50,39 +50,43 @@ const AdminBlogItem = ({ item, index }) => {
 const AdminBlog = () => {
     const blogContext = useBlogContext();
 
+    const {
+        postData: data,
+        status,
+        statusDescription,
+        postDataFunc,
+    } = usePostData({ endpoint: "blog" });
 
-    const { isLoading, isError, data } = useData({
-        endpoint: "blog",
-        options: { method: "GET" },
-    });
-
-    const [isPostDataLoading, setIsPostDataLoading] = useState(false);
-    const postData = usePostBlogContext();
-
-    const handlePostData = async () => {
-        setIsPostDataLoading(true);
-        try {
-            await postData();
-        } catch (e) {
-            console.error(e);
+    useEffect(() => {
+        if (status === "success" || status === "error") {
+            toast(statusDescription);
         }
-        setIsPostDataLoading(false);
+    }, [status, statusDescription]);
+
+    const handlePostData = (e) => {
+        e.preventDefault();
+        postDataFunc({ payload: blogContext });
     };
 
-    if (isLoading || !data) return <Preloader />;
+    if (status === "loading") return <Preloader />;
+    if (!data)
+        return (
+            <div>
+                <h3>Данные не загружены</h3>
+            </div>
+        );
 
     return (
         <div className="admin_container">
             <h2>Настройка Блога</h2>
             <div className="admin_container__block">
-                {/* Заменили posts на articles */}
                 {data.articles?.map((item, index) => (
                     <AdminBlogItem key={index} item={item} index={index} />
                 ))}
             </div>
 
             <button className="btn primary_btn" onClick={handlePostData}>
-                {isPostDataLoading ? "Сохранение..." : "Сохранить изменения"}
+                Сохранить изменения
             </button>
         </div>
     );

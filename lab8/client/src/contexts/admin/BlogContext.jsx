@@ -1,9 +1,9 @@
 import { createContext, useContext, useRef, useState } from "react";
-import footerData from "../../mockData/footerData";
+import blogData from "../../mockData/blogData";
 
 const controller = new AbortController();
 const signal = controller.signal;
-const endpoint = "footer";
+const endpoint = "blog";
 const options = {
     method: "POST",
     headers: {
@@ -11,11 +11,11 @@ const options = {
     },
 };
 
-const FooterContext = createContext();
-const PostFooterContext = createContext();
+const BlogContext = createContext();
+const PostBlogContext = createContext();
 
-const FooterContextProvider = ({ children }) => {
-    const data = useRef(footerData);
+const BlogContextProvider = ({ children }) => {
+    const data = useRef(blogData);
     const [isPostDataLoading, setIsPostDataLoading] = useState(false);
     const [isPostDataError, setIsPostDataError] = useState(false);
     const [postDataError, setPostDataError] = useState(null);
@@ -28,7 +28,7 @@ const FooterContextProvider = ({ children }) => {
             setIsPostDataLoading(true);
 
             try {
-                const response = await fetch(url, options, signal);
+                const response = await fetch(url, options, signal)
                 const jsonData = await response.json();
 
                 if (!response.ok) {
@@ -39,7 +39,7 @@ const FooterContextProvider = ({ children }) => {
 
                 setIsPostDataError(false);
                 setPostDataError(null);
-            }catch (error) {
+            } catch (error) {
                 setIsPostDataError(true);
                 setPostDataError(error.message);
             }
@@ -57,16 +57,16 @@ const FooterContextProvider = ({ children }) => {
     };
 
     return (
-        <FooterContext.Provider value={data.current}>
-            <PostFooterContext.Provider value={postData}>
+        <BlogContext.Provider value={data.current}>
+            <PostBlogContext.Provider value={postData}>
                 {children}
-            </PostFooterContext.Provider>
-        </FooterContext.Provider>
+            </PostBlogContext.Provider>
+        </BlogContext.Provider>
     );
 };
 
-export const useFooterContext = () => useContext(FooterContext);
-export const usePostFooterContext = () => useContext(PostFooterContext);
+export const useBlogContext = () => useContext(BlogContext);
+export const usePostBlogContext = () => useContext(PostBlogContext);
 
-export { useFooterContext, usePostFooterContext };
-export default FooterContextProvider;
+export { useBlogContext, usePostBlogContext };
+export default BlogContextProvider;

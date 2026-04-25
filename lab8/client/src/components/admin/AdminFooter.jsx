@@ -97,8 +97,8 @@ const AdminFooter = () => {
     }, [status, statusDescription]);
 
     const handlePostData = (e) => {
-    e.preventDefault();
-    postDataFunc({ payload: footerContext });
+        e.preventDefault();
+        postDataFunc({ payload: footerContext });
     };
 
     if (status === "loading") return <Preloader />;
