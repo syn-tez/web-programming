@@ -73,4 +73,10 @@ const {
 
 router.route("/footer").get(getFooterData).post(postFooterData);
 
+const {
+  getAllHomePageData,
+} = require("../controllers/allHomePageController");
+
+router.route("/homePage").get(getAllHomePageData);
+
 module.exports = router;
