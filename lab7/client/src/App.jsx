@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
 import AdminLogin from "./pages/admin/AdminLogin";
+import AdminHome from "./pages/admin/AdminHome";
 
 if (!process.env.REACT_APP_API_URL) {
   console.log("Похоже не используется .env");
@@ -30,11 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: "admin/home",
-    element: <Home isEditable={true} />,
-  },
-  {
-    path: "*",
-    element: <Error />,
+    element: <AdminHome />,
   },
 ]);
 
