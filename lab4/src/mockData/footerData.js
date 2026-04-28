@@ -1,9 +1,11 @@
+import footerSvg from "../assets/img/logo.svg"
+
 export const mainHeader = "Хотите Шагнуть в Будущее Раньше Других?";
 
 export const mainButtonTitle = "Запросить ранний доступ";
 
 export const logo = {
-  src: "./assets/img/logo.svg",
+  src: footerSvg,
   alt: "logo",
 };
 
