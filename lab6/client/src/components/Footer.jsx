@@ -52,7 +52,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer_section__law">
-                <p className="law__text">© 2021 GPT-3. Все права защищены.</p>
+                <p className="law__text">© 2026 GPT-4. Все права защищены.</p>
             </div>
         </footer>
     );
