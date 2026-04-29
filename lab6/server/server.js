@@ -2,6 +2,7 @@
 // аналогичен import X from 'ROUTE' из es6
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 
 // импортируем роутер
 const router = require("./routers/router");
@@ -9,6 +10,9 @@ const errorRouter = require("./routers/errorRouter");
 
 // вызываем экспресс для получения приложения
 const app = express();
+
+// вызываем cors для использования cors
+app.use(cors());
 
 // middleware для использования json
 app.use(express.json());
