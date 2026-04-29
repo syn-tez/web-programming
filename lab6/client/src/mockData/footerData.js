@@ -19,7 +19,7 @@ export const linksCol = {
 
 export const companyCol = {
   title: "Компания",
-  items: ["Условия использования", "Перс. данные", "Конаткты"],
+  items: ["Условия использования", "Перс. данные", "Контакты"],
 };
 
 export const contactsCol = {
