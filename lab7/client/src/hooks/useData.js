@@ -6,7 +6,7 @@ const controller = new AbortController();
 const signal = controller.signal;
 
 const useData = ({ endpoint, options }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);

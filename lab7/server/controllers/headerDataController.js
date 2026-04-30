@@ -18,6 +18,9 @@ const getHeaderData = (req, res, next) => {
 };
 
 const postHeaderData = (req, res, next) => {
+  console.log("req");
+  console.log(req.body);
+
   try {
     const data = req.body;
 

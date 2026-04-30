@@ -1,7 +1,7 @@
 const { isObjectHasProps } = require("./utils/validators");
 
 const isCtaDataValid = (data) => {
-    isObjectHasProps(data, ["text", "btnText"]);
+    isObjectHasProps(data, ["header", "content", "buttonTitle"]);
 };
 
 module.exports = isCtaDataValid;

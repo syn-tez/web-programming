@@ -8,7 +8,7 @@ export const BrandsImage = ({ brand: { alt, src } }) => (
 );
 
 export const BrandsTemplate = ({ brandsData }) =>
-  brandsData?.map((brand, index) => <BrandsImage key={index} brand={brand} />);
+  brandsData.map((brand, index) => <BrandsImage key={index} brand={brand} />);
 
 const Brands = () => {
   const { isLoading, isError, error, data } = useData({

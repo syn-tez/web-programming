@@ -8,14 +8,10 @@ import Showcase from "../components/Showcase";
 import Cta from "../components/Cta";
 import Footer from "../components/Footer";
 
-const Home = ({ isEditable }) => {
+const Home = () => {
   return (
-    <>
-      <section
-        className="section header"
-        id="header"
-        // contentEditable={isEditable}
-      >
+    <div>
+      <section className="section header" id="header">
         <Header />
       </section>
       <section className="section hero_section" id="hero">
@@ -42,7 +38,7 @@ const Home = ({ isEditable }) => {
       <section className="section footer" id="footer">
         <Footer />
       </section>
-    </>
+    </div>
   );
 };
 
