@@ -1,21 +1,26 @@
 export const menuData = [
   {
+    type: "link",
     title: "Главная",
     href: "#",
   },
   {
+    type: "button",
     title: "Что такое GPT?",
     href: "#",
   },
   {
+    type: "button",
     title: "Open AI",
     href: "#",
   },
   {
+    type: "link",
     title: "Кейсы",
     href: "#",
   },
   {
+    type: "link",
     title: "Библиотека",
     href: "#",
   },
