@@ -95,8 +95,8 @@ const AdminShowcase = () => {
                 />
             </div>
 
-            <button className="btn primary_btn" onClick={() => postData()}>
-                Сохранить изменения
+            <button className="btn primary-btn" onClick={() => postData()}>
+                Сохранить
             </button>
         </div>
     );

@@ -114,8 +114,8 @@ const AdminFooter = () => {
                 <AdminFooterLinksGroup group={data.contactsCol} groupKey="contactsCol" />
             </div>
 
-            <button className="btn primary_btn" onClick={handlePostData}>
-                {isPostDataLoading ? "Сохранение..." : "Сохранить изменения"}
+            <button className="btn primary-btn" onClick={handlePostData}>
+                {isPostDataLoading ? "Сохранение..." : "Сохранить"}
             </button>
         </div>
     );
