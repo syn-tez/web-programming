@@ -958,6 +958,20 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+  .hero_section {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+  }
+
+  .what_is_chatgpt_section,
+  .future_here,
+  .showcase_section,
+  .cta_section,
+  .blog_section,
+  .footer_section {
+    margin-top: 2rem;
+  }
+
   .blog_section__articles {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
