@@ -85,8 +85,8 @@ const AdminBlog = () => {
                 ))}
             </div>
 
-            <button className="btn primary_btn" onClick={handlePostData}>
-                Сохранить изменения
+            <button className="btn primary-btn" onClick={handlePostData}>
+                Сохранить
             </button>
         </div>
     );

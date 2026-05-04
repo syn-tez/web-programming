@@ -459,58 +459,6 @@ p {
   color: #81afdd;
 }
 
-/* Админка */
-
-.admin_section {
-  display: flex;
-  width: 100%;
-  max-width: 1169px;
-  height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.admin_section .form {
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 2.5rem;
-}
-
-.admin_section .form label {
-  color: #fff;
-  display: flex;
-  /* column-gap: 1rem; */
-  align-items: center;
-}
-
-.admin_section .form label span {
-  width: 30%;
-}
-
-.admin_section .form input[type="text"] {
-  width: 70%;
-  padding: 12px;
-}
-
-.admin_section .form input[type="button"],
-.admin_section .form input[type="submit"] {
-  background: #ff4820;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-  padding: 18px;
-  font-size: 16px;
-  color: #fff;
-}
-
-.admin_section .form input[type="button"]:hover,
-.admin_section .form input[type="submit"]:hover {
-  background-color: #ae67fa;
-  transition: all 0.3s ease-out;
-}
-
 
 /* Стили для Blog */
 .blog_section {
@@ -655,6 +603,138 @@ p {
   color: #ff8a71;
 }
 
+/* Админка */
+
+.admin_section {
+  display: flex;
+  width: 100%;
+  max-width: 1169px;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin_section .form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.admin_section .form label {
+  color: #fff;
+  display: flex;
+  /* column-gap: 1rem; */
+  align-items: center;
+}
+
+.admin_section .form label span {
+  width: 30%;
+}
+
+.admin_section .form input[type="text"] {
+  width: 70%;
+  padding: 12px;
+}
+
+.admin_section .form input[type="button"],
+.admin_section .form input[type="submit"] {
+  background: #ff4820;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  padding: 18px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.admin_section .form input[type="button"]:hover,
+.admin_section .form input[type="submit"]:hover {
+  background-color: #ae67fa;
+  transition: all 0.3s ease-out;
+}
+
+/* Админ стили */
+.admin_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 2.5rem;
+  padding: 4rem 20px 0 20px;
+  margin-bottom: 120px;
+}
+
+.admin_container label {
+  color: #fff;
+}
+
+.admin_container input {
+  padding: 8px 12px;
+}
+
+.admin_container .admin_container__block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+.admin_container .admin_container__block h2 {
+  font-size: 24px;
+}
+
+.admin_container .admin_container__block .btn {
+  align-self: flex-start;
+}
+
+.admin_container .admin_container__block .primary_btn {
+  font-size: 24px;
+}
+
+.admin_container .admin_container__block h3 {
+  font-size: 18px;
+}
+
+.admin_container .admin_container__block .block__card {
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  padding-left: 1rem;
+}
+
+.admin_container .admin_container__block .block__item {
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  padding-left: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin_container .admin_container__block .block__item .item__long_input {
+  min-width: 512px;
+}
+
+.admin_container .admin_container__block .block__card .block__item {
+  display: flex;
+  flex-direction: column;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  padding-left: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.admin_container .error {
+  color: #ff4820;
+}
+
+.admin_container .success {
+  color: #3498db;
+}
 
 /* Медиа запросы для адаптива */
 
